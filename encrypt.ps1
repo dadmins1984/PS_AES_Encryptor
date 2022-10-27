@@ -34,7 +34,7 @@ $CryptoStream.Dispose()
 $AES.Dispose()
 $InputStream.Close()
 $OutputStream.Close()
-emove-Item $item -Recurse -Force
+Remove-Item $item -Recurse -Force
 }
 }
 }
